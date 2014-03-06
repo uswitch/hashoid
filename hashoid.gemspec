@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Hashoid::VERSION
   spec.authors       = ["Thibaut Sacreste"]
   spec.email         = ["thibaut.sacreste@gmail.com"]
-  spec.description   = "Hashoid: a Hash to Object Mapper"
+  spec.description   = "Hashoid: a JSON/Hash to Object Mapper"
   spec.summary       = "Turns your bland json/hashes into flavoursome objects!"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/uswitch/hashoid"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
