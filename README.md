@@ -5,7 +5,7 @@ Turns your bland json/hashes into flavoursome objects! Useful for consuming web 
 Loosely and shamelessly inspired by Mongoid.
 
 Supports:
-* attribute declaration via `field` and `collection` class methods
+* attribute declaration via `field(s)` and `collection(s)` class methods
 * field type inference from field name (supports name inflection for collections)
 * custom type declaration
 * custom transforms
