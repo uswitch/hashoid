@@ -63,6 +63,10 @@ module Hashoid
         my_module.const_get(class_name) if my_module.const_defined?(class_name)
       end
     end
+
+    def alias_boolean field
+      alias_method("#{field}?", field) 
+    end
   
     def my_module
       @my_module ||= (self.name =~ /^(.+)::[^:]+$/) ? $1.constantize : Module
@@ -77,7 +81,8 @@ module Hashoid
       field = k.to_s.gsub('-', '_').to_sym
       unless defined?(field).nil? # check if it's included as a reader attribute
         result = v.instance_of?(Array) ? init_objects(field, v) : init_object(field, v)
-        instance_variable_set("@#{field}", result) if result
+        instance_variable_set("@#{field}", result)
+        self.class.alias_boolean(field) if !!result == result # convenience field? method for boolean values
       end
     end
   end
