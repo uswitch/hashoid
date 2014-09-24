@@ -79,7 +79,7 @@ module Hashoid
     @args = args
     args.each do |k, v|
       field = k.to_s.gsub('-', '_').to_sym
-      unless defined?(field).nil? # check if it's included as a reader attribute
+      unless self.class._fields[field].nil? # check if it's a declared field
         result = v.instance_of?(Array) ? init_objects(field, v) : init_object(field, v)
         instance_variable_set("@#{field}", result)
         self.class.alias_boolean(field) if !!result == result # convenience field? method for boolean values
